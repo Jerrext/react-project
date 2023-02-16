@@ -2,20 +2,24 @@
 
 .userNameWrapper {
     background-color: $primary;
-    padding: 17px 32px;
+    padding: 0 32px;
+    height: 84px;
     display: inline-flex;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
-    line-height: 48px;
     color: $white;
+    align-items: center;
 }
 
 .initials {
     width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: $primary-secondary;
     border-radius: 2px;
-    text-align: center;
     margin-right: 16px;
 }
