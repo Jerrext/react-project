@@ -1,42 +1,38 @@
-@import "src/assets/colors";
 @import "src/assets/mixins";
 
 .primaryBtn {
-    @include button();
-    background-color: $primary;
-    color: $white;
+  @include button($white);
+  background-color: $primary;
 
-    &:hover {
-        background-color: $primary-secondary;
-    }
+  &:hover {
+    background-color: $primary-secondary;
+  }
 }
 
 .secondaryBtn {
-    @include button();
-    background-color: $light;
-    color: $secondary;
+  @include button($secondary);
+  background-color: $light;
 
-    &:hover {
-        background-color: $medium;
-    }
+  &:hover {
+    background-color: $medium;
+  }
 }
 
 .errorBtn {
-    @include button();
-    color: $error;
-    
-    &:hover {
-        border-color: $medium;
-    }
+  @include button($error);
+
+  &:hover {
+    border-color: $medium;
+  }
 }
 
 .disabledBtn {
-    background-color: $light;
-    color: $gray;
-    cursor: not-allowed;
+  background-color: $light;
+  color: $gray;
+  cursor: not-allowed;
 
-    &:hover {
-        background-color: $light;
-        cursor: not-allowed;
-    }
+  &:hover {
+    background-color: $light;
+    cursor: not-allowed;
+  }
 }

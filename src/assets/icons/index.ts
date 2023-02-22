@@ -1,2 +1,6 @@
-export { OpenMenu } from "./OpenMenu"
-export { CloseMenu } from "./CloseMenu"
+export { OpenMenuIcon } from "./OpenMenuIcon"
+export { CloseMenuIcon } from "./CloseMenuIcon"
+export { MoreIcon } from "./MoreIcon";
+export { BookmarkIcon } from "./BookmarkIcon";
+export { DislikeIcon } from "./DislikeIcon";
+export { LikeIcon } from "./LikeIcon";

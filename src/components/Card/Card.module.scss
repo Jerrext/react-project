@@ -1,0 +1,86 @@
+@import "src/assets/mixins";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid $medium;
+  max-width: 736px;
+  height: 450px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+.iconWrapper {
+  display: flex;
+  gap: 24px;
+}
+.infoWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.image {
+  max-width: 256px;
+  object-fit: cover;
+  max-height: 244px;
+}
+.text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: $gray;
+}
+.title {
+  @include h2();
+}
+.date {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $gray;
+}
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mainInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mediumInfoWrapper {
+  flex-direction: column-reverse;
+  gap: 24px;
+}
+
+.mediumWrapper {
+  max-width: 352px;
+}
+
+.mediumTitle {
+  @include h3();
+}
+
+.mediumImage {
+  max-width: 352px;
+  max-height: 246px;
+  height: 246px;
+}
+
+.smallWrapper {
+  height: 206px;
+  max-width: 354px;
+}
+.smallImage {
+  max-height: 96px;
+  max-width: 96px;
+}
+.smallInfoWrapper {
+  gap: 34px;
+}

@@ -1,15 +1,51 @@
-@mixin button {
-    border-radius: 2px;
-    padding: 16px 32px;
-    border: 1px solid transparent;
-    display: inline-block;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 24px;
+@import "src/assets/colors";
 
-    &:hover {
-        cursor: pointer;
-    }
+@mixin button($color, $fs: 18px) {
+  border-radius: 2px;
+  padding: 16px 32px;
+  border: 1px solid transparent;
+  display: inline-block;
+
+  @include btnText($color, $fs);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin typography($fw, $fs, $lh, $color) {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: $fw;
+  font-size: $fs;
+  line-height: $lh;
+  color: $color;
+}
+
+@mixin btnText($color, $fs) {
+  @include typography(600, $fs, 24px, $color);
+}
+
+@mixin h1($color: $secondary) {
+  @include typography(700, 56px, 80px, $color);
+}
+
+@mixin h2($color: $secondary) {
+  @include typography(700, 32px, 44px, $color);
+}
+
+@mixin h3($color: $secondary) {
+  @include typography(600, 18px, 28px, $color);
+}
+
+@mixin s1($color: $secondary) {
+  @include typography(600, 16px, 24px, $color);
+}
+
+@mixin b1($color: $secondary) {
+  @include typography(400, 18px, 32px, $color);
+}
+
+@mixin b2($color: $secondary) {
+  @include typography(600, 16px, 24px, $color);
 }
