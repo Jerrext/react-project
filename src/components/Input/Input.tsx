@@ -6,12 +6,11 @@ type InputProps = {
   title: string;
   placeholder: string;
   disabled?: boolean;
+  errText?: boolean;
   className?: string;
 };
 
-const Input: FC<InputProps> = ({ title, placeholder, disabled, className }) => {
-  const [errState, setErrState] = useState(false);
-  // let textInput = React.createRef<HTMLInputElement>();
+const Input: FC<InputProps> = ({ title, placeholder, disabled, errText, className }) => {
   return (
     <div>
       <p className={styles.title}>{title}</p>
@@ -19,22 +18,13 @@ const Input: FC<InputProps> = ({ title, placeholder, disabled, className }) => {
         // ref={textInput}
         className={classNames(styles.input, className, {
           [styles.disabledInp]: disabled,
-          [styles.errorInput]: errState,
+          [styles.errorInput]: errText,
         })}
         type="text"
         placeholder={placeholder}
         disabled={disabled}
-        onChange={(event) => {
-          setErrState(event.target.value === "text"); //test
-        }}
       />
-      <p
-        className={classNames(styles.errorText, {
-          [styles.showError]: errState,
-        })}
-      >
-        Error text
-      </p>
+      {errText && <p className={styles.errorText}>Error text</p>}
     </div>
   );
 };

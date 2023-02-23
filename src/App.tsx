@@ -37,6 +37,7 @@ const App = () => {
       <Card card={MOCK_CARD} size={CardSize.Small} />
       <Input title="Title" placeholder="Placeholder" />
       <Input title="Title" placeholder="Placeholder" disabled />
+      <Input title="Title" placeholder="Placeholder" errText />
     </div>
   );
 };
