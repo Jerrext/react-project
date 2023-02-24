@@ -1,0 +1,70 @@
+@import "src/assets/mixins";
+
+.conrainer {
+  max-width: 1120px;
+  padding: 72px 0;
+  gap: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid $medium;
+}
+
+.navigation {
+  display: flex;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $secondary;
+}
+
+.navItem {
+  padding: 0 11px;
+  border-right: 2px solid $gray;
+  cursor: pointer;
+}
+
+.navItem:first-child {
+  padding-left: 0;
+}
+
+.navItem:last-child {
+  color: $gray;
+  padding-right: 0;
+  border-right: 0;
+  cursor: default;
+}
+
+.headerWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.image {
+  width: 992px;
+  height: 518px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.text {
+  max-width: 920px;
+  @include b1();
+}
+
+.btnWrapper {
+  max-width: 920px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.likeBtn {
+  margin-right: 6px;
+}
+
+.rightBtn {
+  display: flex;
+  gap: 10px;
+}
