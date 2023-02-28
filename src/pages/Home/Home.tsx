@@ -163,7 +163,7 @@ const Home = () => {
   const [cardsList, setCardsList] = useState<CardType[]>([]);
   const [activeTab, setActiveTab] = useState(TabsNames.All);
 
-  const onTabClick = (key: TabsNames) => () => setActiveTab(key);
+  const onTabClick = (key: TabsNames) => setActiveTab(key);
 
   useEffect(() => {
     setCardsList(MOCK_ARRAY);
@@ -172,7 +172,7 @@ const Home = () => {
   return (
     <div className={styles.conrainer}>
       <Title title={"Blog"} className={styles.title} />
-      <Tabs tabsList={TABS_LIST} onTabClick={onTabClick} activeTab={activeTab} />
+      <Tabs tabsList={TABS_LIST} onClick={onTabClick} activeTab={activeTab} />
       <CardsList cardsList={cardsList} />
     </div>
   );

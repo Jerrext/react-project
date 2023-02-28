@@ -1,15 +1,12 @@
 import React, { FC, ReactNode, useState } from "react";
 import classNames from "classnames";
 import styles from "./Tabs.module.scss";
-import { TabsNames, TabType } from "./types";
+import { TabsNames, TabsProps} from "./types";
 
-type TabsProps = {
-  tabsList: TabType[];
-  onTabClick: (key: TabsNames) => () => void; // не уверен я что-то в этой записи, но вроде ошибок нет
-  activeTab: number;
-};
 
-const Tabs: FC<TabsProps> = ({ tabsList, onTabClick, activeTab }) => {
+
+const Tabs: FC<TabsProps> = ({ tabsList, onClick, activeTab }) => {
+  const onTabClick = (key: TabsNames) => () => onClick(key)
   return (
     <div className={styles.container}>
       {tabsList.map((tab) => {
