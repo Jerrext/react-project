@@ -1,0 +1,22 @@
+@import "src/assets/mixins";
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.formWrapper {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 624px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 40px;
+    border: 1px solid $medium;
+}
+
+.darkWrapper {
+    border-color: $gray;
+  }

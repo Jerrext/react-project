@@ -3,3 +3,7 @@
 .title {
   @include h1();
 }
+
+.darkTitle {
+  color: $white;
+}

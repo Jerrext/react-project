@@ -10,7 +10,7 @@
   max-width: 736px;
   height: 450px;
 
-  & svg {
+  svg {
     cursor: pointer;
   }
 }
@@ -105,4 +105,17 @@
 
 .smallInfoWrapper {
   gap: 34px;
+}
+
+.darkTitle {
+  color: $white;
+}
+.darkIconWrapper {
+
+  div > svg > path {
+    fill: $white;
+  }
+}
+.darkWrapper {
+  border-bottom-color: $gray;
 }

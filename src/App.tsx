@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import classNames from "classnames";
+import styles from "./App.module.scss"
 import logo from "./logo.svg";
-import "./App.css";
 import Button, { ButtonType } from "./components/Button";
 import UserName from "./components/UserName";
 import Title from "./components/Title";
@@ -11,6 +12,11 @@ import { CardSize } from "./components/Card/types";
 import Input from "./components/Input";
 import Home from "./pages/Home";
 import Content from "./pages/Content";
+import ThemeProvider from "./context/Theme/Provider";
+import { Theme } from "./context/Theme/Context";
+import SignIn from "./pages/FormPages/SignIn";
+import Success from "./pages/FormPages/Success";
+
 
 const MOCK_CARD = {
   id: 0,
@@ -25,24 +31,35 @@ const MOCK_CARD = {
 };
 
 const App = () => {
+  const [theme, setTheme] = useState(Theme.Light);
+
+  const onChangeTheme = (value: Theme) => {
+    setTheme(value);
+  };
   return (
-    <div className="App">
-      {/* <Button title={"Primary"} type={ButtonType.Primary} onClick={() => {}} />
-      <Button title={"Secondary"} type={ButtonType.Secondary} onClick={() => {}} />
-      <Button title={"Error"} type={ButtonType.Error} onClick={() => {}} />
-      <UserName userName="Artem Malkin" />
-      <Title title="Blog" />
-      <Tabs />
-      <MenuButton />
-      <Card card={MOCK_CARD} size={CardSize.Large} />
-      <Card card={MOCK_CARD} size={CardSize.Medium} />
-      <Card card={MOCK_CARD} size={CardSize.Small} />
-      <Input title="Title" placeholder="Placeholder" />
-      <Input title="Title" placeholder="Placeholder" disabled />
-      <Input title="Title" placeholder="Placeholder" errText /> */}
-      <Content />
-      <Home />
-    </div>
+    <ThemeProvider theme={theme} onChangeTheme={onChangeTheme}>
+      <div className={classNames(styles.app, {
+        [styles.appDark]: theme === Theme.Dark,
+      })}>
+        {/* <Button title={"Primary"} type={ButtonType.Primary} onClick={() => {}} />
+        <Button title={"Secondary"} type={ButtonType.Secondary} onClick={() => {}} />
+        <Button title={"Error"} type={ButtonType.Error} onClick={() => {}} />
+        <UserName userName="Artem Malkin" />
+        <Title title="Blog" />
+        <Tabs />
+        <MenuButton />
+        <Card card={MOCK_CARD} size={CardSize.Large} />
+        <Card card={MOCK_CARD} size={CardSize.Medium} />
+        <Card card={MOCK_CARD} size={CardSize.Small} />
+        <Input title="Title" placeholder="Placeholder" />
+        <Input title="Title" placeholder="Placeholder" disabled />
+        <Input title="Title" placeholder="Placeholder" errText /> */}
+        {/* <Content /> */}
+        {/* <Home /> */}
+        <SignIn />
+        <Success />
+      </div>
+    </ThemeProvider>
   );
 };
 

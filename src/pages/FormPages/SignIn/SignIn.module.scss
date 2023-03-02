@@ -1,0 +1,23 @@
+@import "src/assets/colors";
+
+.inputsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.forgotPass {
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.signUpLink {
+  color: $primary-secondary;
+  font-weight: 500;
+}

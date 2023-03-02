@@ -1,0 +1,31 @@
+@import "src/assets/colors";
+
+.wrapper {
+  padding: 72px 0;
+  border-bottom: 1px solid $medium;
+  max-width: 1120px;
+}
+
+.btnHome {
+  margin-bottom: 32px;
+  cursor: pointer;
+}
+
+.title {
+  margin-bottom: 72px;
+}
+
+.inputsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.forgotPass {
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+.darkWrapper {
+  color: $white;
+}

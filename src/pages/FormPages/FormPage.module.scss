@@ -1,0 +1,18 @@
+@import "src/assets/colors";
+
+.wrapper {
+  max-width: 1120px;
+}
+
+.btnHome {
+  margin-bottom: 32px;
+  cursor: pointer;
+}
+
+.title {
+  margin-bottom: 72px;
+}
+
+.darkWrapper {
+  color: $white;
+}
