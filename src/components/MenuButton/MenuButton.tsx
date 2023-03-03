@@ -4,19 +4,18 @@ import styles from "./MenuButton.module.scss";
 import Button, { ButtonType } from "../Button";
 import { CloseMenuIcon, OpenMenuIcon } from "../../assets/icons";
 
-const MenuButton = () => {
-  const [isOpened, setOpened] = useState(false);
+type MenuButtonProps = {
+  isOpened: boolean;
+  menuButtonOnClick: () => void;
+}
 
-  const changeState = () => {
-    return setOpened(!isOpened);
-  };
-
+const MenuButton: FC<MenuButtonProps> = ({ isOpened, menuButtonOnClick }) => {
   return (
     <Button
       className={styles.button}
       title={isOpened ? <CloseMenuIcon /> : <OpenMenuIcon />}
       type={ButtonType.Primary}
-      onClick={changeState}
+      onClick={menuButtonOnClick}
     />
   );
 };
