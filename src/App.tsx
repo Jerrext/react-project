@@ -9,6 +9,8 @@ import MenuButton from "./components/MenuButton";
 import Card from "./components/Card";
 import { CardSize } from "./components/Card/types";
 import Input from "./components/Input";
+import Home from "./pages/Home";
+import Content from "./pages/Content";
 
 const MOCK_CARD = {
   id: 0,
@@ -25,11 +27,11 @@ const MOCK_CARD = {
 const App = () => {
   return (
     <div className="App">
-      <Button title={"Primary"} type={ButtonType.Primary} onClick={() => {}} />
+      {/* <Button title={"Primary"} type={ButtonType.Primary} onClick={() => {}} />
       <Button title={"Secondary"} type={ButtonType.Secondary} onClick={() => {}} />
       <Button title={"Error"} type={ButtonType.Error} onClick={() => {}} />
       <UserName userName="Artem Malkin" />
-      <Title />
+      <Title title="Blog" />
       <Tabs />
       <MenuButton />
       <Card card={MOCK_CARD} size={CardSize.Large} />
@@ -37,7 +39,9 @@ const App = () => {
       <Card card={MOCK_CARD} size={CardSize.Small} />
       <Input title="Title" placeholder="Placeholder" />
       <Input title="Title" placeholder="Placeholder" disabled />
-      <Input title="Title" placeholder="Placeholder" errText />
+      <Input title="Title" placeholder="Placeholder" errText /> */}
+      <Content />
+      <Home />
     </div>
   );
 };

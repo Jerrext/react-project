@@ -1,8 +1,13 @@
-import React from 'react';
-import styles from './Title.module.scss';
+import React, { FC } from "react";
+import styles from "./Title.module.scss";
 
-const Title = () => {
-    return <h1 className={styles.title}>Blog</h1>
-}
+type TitleProps = {
+  title: string;
+  className?: string;
+};
 
-export default Title
+const Title: FC<TitleProps> = ({ title, className }) => {
+  return <h1 className={`${styles.title} ${className}`}>{title}</h1>;
+};
+
+export default Title;
