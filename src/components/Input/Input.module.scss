@@ -25,6 +25,10 @@
   &:active {
     border: 2px solid transparent;
   }
+
+  &::placeholder {
+    color: $gray;
+  }
 }
 
 .disabledInp {

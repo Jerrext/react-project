@@ -4,7 +4,7 @@
     background-color: $primary;
     padding: 0 32px;
     height: 84px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     @include s1($white);
 }

@@ -1,24 +1,33 @@
 import React from "react";
 import styles from "./SignIn.module.scss";
-import ThemeSwitcher from "../../../components/ThemeSwitcher";
 import Form from "../../../components/Form";
 import Input from "../../../components/Input";
 import Button, { ButtonType } from "../../../components/Button";
 import FormPage from "../FormPage";
+import { NavLink } from "react-router-dom";
+import { RoutesList } from "../../Router";
 
 const SignIn = () => {
+  const emailOnChange = () => {
+
+  }
+
+  const passwordOnChange = () => {
+
+  }
+  
   return (
     <FormPage titleFormPage="Sign In">
       <Form>
         <div className={styles.inputsWrapper}>
-          <Input title="Email" placeholder="Your email"/>
+          <Input title="Email" placeholder="Your email" onChange={emailOnChange} />
           <div className={styles.passwordWrapper}>
-            <Input title="Password" placeholder="Your password"/>
+            <Input title="Password" placeholder="Your password" onChange={passwordOnChange}/>
             <div className={styles.forgotPass}>Forgot password?</div>
           </div>
           <div className={styles.buttonWrapper}>
             <Button title={"Sign In"} type={ButtonType.Primary} onClick={() => {}}/>
-            <div>Don’t have an account? <a href="#" className={styles.signUpLink}>Sign Up</a></div>
+            <div>Don’t have an account? <NavLink to={RoutesList.SignUp} className={styles.signUpLink}>Sign Up</NavLink></div>
           </div>
         </div>
       </Form>

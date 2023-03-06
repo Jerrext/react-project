@@ -9,9 +9,10 @@ type InputProps = {
   disabled?: boolean;
   errText?: string;
   className?: string;
+  onChange: () => void;
 };
 
-const Input: FC<InputProps> = ({ title, placeholder, disabled, errText, className }) => {
+const Input: FC<InputProps> = ({ title, placeholder, disabled, errText, className, onChange }) => {
   const { theme } = useThemeContext()
   return (
     <div>
@@ -26,6 +27,7 @@ const Input: FC<InputProps> = ({ title, placeholder, disabled, errText, classNam
         type="text"
         placeholder={placeholder}
         disabled={disabled}
+        onChange={onChange}
       />  
       {errText && <p className={styles.errorText}>{errText}</p>}
     </div>
