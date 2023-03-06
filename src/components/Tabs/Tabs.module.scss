@@ -1,6 +1,6 @@
 @import "src/assets/mixins";
 
-.container {
+.wrapper {
     display: flex;
     gap: 40px;
     border-bottom: 1px solid $medium;
@@ -31,3 +31,13 @@
         color: $gray;
     }
 }
+
+.darkWrapper {
+    border-bottom-color: $gray;
+    .tab {
+      color: $white;
+    }
+    .activeTab {
+      border-bottom-color: $white;
+    }
+  }

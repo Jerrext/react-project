@@ -1,0 +1,26 @@
+@import "./assets/colors";
+
+:root {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.app {
+  background-color: #f3f3f3;
+}
+
+.appDark {
+  background-color: $secondary;
+}

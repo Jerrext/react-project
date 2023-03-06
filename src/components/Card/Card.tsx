@@ -3,18 +3,23 @@ import classNames from "classnames";
 import styles from "./Card.module.scss";
 import { CardProps, CardSize } from "./types";
 import { BookmarkIcon, DislikeIcon, LikeIcon, MoreIcon } from "../../assets/icons";
+import { Theme, useThemeContext } from "../../context/Theme/Context";
 
 const Card: FC<CardProps> = ({ card, size }) => {
   const { title, text, date, image } = card;
+  
+  const { theme } = useThemeContext();
 
   const isMedium = size === CardSize.Medium;
   const isSmall = size === CardSize.Small;
+  const isDark = theme === Theme.Dark;
 
   return (
     <div
       className={classNames(styles.wrapper, {
         [styles.mediumWrapper]: isMedium,
         [styles.smallWrapper]: isSmall,
+        [styles.darkWrapper]: isDark,
       })}
     >
       <div
@@ -29,6 +34,7 @@ const Card: FC<CardProps> = ({ card, size }) => {
             <div
               className={classNames(styles.title, {
                 [styles.mediumTitle]: isMedium || isSmall,
+                [styles.darkTitle]: isDark,
               })}
             >
               {title}
@@ -45,7 +51,9 @@ const Card: FC<CardProps> = ({ card, size }) => {
         />
       </div>
       <div className={styles.footer}>
-        <div className={styles.iconWrapper}>
+        <div className={classNames(styles.iconWrapper, {
+          [styles.darkIconWrapper]: isDark,
+        })}>
           <div>
             <LikeIcon />
           </div>
@@ -53,7 +61,9 @@ const Card: FC<CardProps> = ({ card, size }) => {
             <DislikeIcon />
           </div>
         </div>
-        <div className={styles.iconWrapper}>
+        <div className={classNames(styles.iconWrapper, {
+          [styles.darkIconWrapper]: isDark,
+        })}>
           <div>
             <BookmarkIcon />
           </div>
