@@ -1,16 +1,12 @@
-@import "src/assets/colors";
+@import "src/assets/mixins";
 
 .userNameWrapper {
     background-color: $primary;
     padding: 0 32px;
     height: 84px;
     display: inline-flex;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    color: $white;
     align-items: center;
+    @include s1($white);
 }
 
 .initials {

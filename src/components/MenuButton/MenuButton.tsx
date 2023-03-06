@@ -1,22 +1,24 @@
-import React, { FC, ReactNode, useState } from 'react';
-import classNames from 'classnames';
-import styles from './MenuButton.module.scss';
-import Button, { ButtonType } from '../Button';
-import { CloseMenu, OpenMenu } from '../../assets/icons';
-
-enum ButtonState {
-    OPEN,
-    CLOSE,
-}
+import React, { FC, ReactNode, useState } from "react";
+import classNames from "classnames";
+import styles from "./MenuButton.module.scss";
+import Button, { ButtonType } from "../Button";
+import { CloseMenuIcon, OpenMenuIcon } from "../../assets/icons";
 
 const MenuButton = () => {
-    const [btnState, setBtnState] = useState(ButtonState.OPEN)
+  const [isOpened, setOpened] = useState(false);
 
-    const changeState = () => {
-        return btnState === ButtonState.OPEN ? setBtnState(ButtonState.CLOSE) : setBtnState(ButtonState.OPEN)
-    }
+  const changeState = () => {
+    return setOpened(!isOpened);
+  };
 
-    return <Button className={styles.button} title={btnState === ButtonState.OPEN && <OpenMenu /> || btnState === ButtonState.CLOSE && <CloseMenu />} type={ButtonType.Primary} onClick={changeState} />    
-}
+  return (
+    <Button
+      className={styles.button}
+      title={isOpened ? <CloseMenuIcon /> : <OpenMenuIcon />}
+      type={ButtonType.Primary}
+      onClick={changeState}
+    />
+  );
+};
 
-export default MenuButton
+export default MenuButton;
