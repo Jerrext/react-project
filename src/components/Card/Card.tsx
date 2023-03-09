@@ -1,18 +1,29 @@
 import React, { FC } from "react";
 import classNames from "classnames";
 import styles from "./Card.module.scss";
-import { CardProps, CardSize } from "./types";
-import { BookmarkIcon, DislikeIcon, LikeIcon, MoreIcon } from "../../assets/icons";
+import { CardProps, CardSize, CardType } from "./types";
+import {
+  BookmarkIcon,
+  DislikeIcon,
+  LikeIcon,
+  MoreIcon,
+} from "../../assets/icons";
 import { Theme, useThemeContext } from "../../context/Theme/Context";
+import { usePostVisibilityContext } from "../../context/PostVisibility/Context";
 
 const Card: FC<CardProps> = ({ card, size }) => {
   const { title, text, date, image } = card;
-  
+
   const { theme } = useThemeContext();
+  const { onChangePostVisibility } = usePostVisibilityContext();
 
   const isMedium = size === CardSize.Medium;
   const isSmall = size === CardSize.Small;
   const isDark = theme === Theme.Dark;
+
+  const onMoreBtnClick = (post: CardType, isPostOpened: boolean) => () => {
+    onChangePostVisibility(post, isPostOpened);
+  };
 
   return (
     <div
@@ -51,9 +62,11 @@ const Card: FC<CardProps> = ({ card, size }) => {
         />
       </div>
       <div className={styles.footer}>
-        <div className={classNames(styles.iconWrapper, {
-          [styles.darkIconWrapper]: isDark,
-        })}>
+        <div
+          className={classNames(styles.iconWrapper, {
+            [styles.darkIconWrapper]: isDark,
+          })}
+        >
           <div>
             <LikeIcon />
           </div>
@@ -61,13 +74,15 @@ const Card: FC<CardProps> = ({ card, size }) => {
             <DislikeIcon />
           </div>
         </div>
-        <div className={classNames(styles.iconWrapper, {
-          [styles.darkIconWrapper]: isDark,
-        })}>
+        <div
+          className={classNames(styles.iconWrapper, {
+            [styles.darkIconWrapper]: isDark,
+          })}
+        >
           <div>
             <BookmarkIcon />
           </div>
-          <div>
+          <div onClick={onMoreBtnClick(card, true)}>
             <MoreIcon />
           </div>
         </div>
