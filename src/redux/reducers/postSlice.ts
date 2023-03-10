@@ -26,10 +26,10 @@ const postSlice = createSlice({
   name: "post",
   initialState,
   reducers: {
-    selectPost(state, action: PayloadAction<CardType | null>) {
+    setSelectedPost(state, action: PayloadAction<CardType | null>) {
       state.postValue = action.payload;
     },
-    visibilityPost(state, action: PayloadAction<boolean>) {
+    setPostVisibility(state, action: PayloadAction<boolean>) {
       state.isModalPostOpened = action.payload;
     },
     setStatus(
@@ -65,25 +65,12 @@ const postSlice = createSlice({
   },
 });
 
-export const { selectPost, visibilityPost, setStatus } = postSlice.actions;
+export const { setSelectedPost, setPostVisibility, setStatus } =
+  postSlice.actions;
 export default postSlice.reducer;
 
 export const PostSelectors = {
-  getPostValue: (state: RootState) => {
-    if (state.post.postValue) {
-      return state.post.postValue;
-    }
-    return {
-      id: 0,
-      image: "",
-      text: "",
-      date: "",
-      lesson_num: 0,
-      title: "",
-      description: "",
-      author: 0,
-    };
-  },
+  getPostValue: (state: RootState) => state.post.postValue,
   getPostVisibility: (state: RootState) => state.post.isModalPostOpened,
   getLikedPosts: (state: RootState) => state.post.likedPosts,
   getDislikedPosts: (state: RootState) => state.post.dislikedPosts,

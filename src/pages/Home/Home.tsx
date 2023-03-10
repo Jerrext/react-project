@@ -5,9 +5,11 @@ import CardsList from "../../components/CardsList";
 import { CardType } from "../../components/Card";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  LikeStatus,
   PostSelectors,
-  selectPost,
-  visibilityPost,
+  setPostVisibility,
+  setSelectedPost,
+  setStatus,
 } from "../../redux/reducers/postSlice";
 import PostModalWindow from "../../components/PostModalWindow";
 import PostVisibilityProvider from "../../context/PostVisibility/Provider";
@@ -187,12 +189,18 @@ const Home = () => {
     post: CardType | null,
     isPostOpened: boolean
   ) => {
-    dispatch(visibilityPost(isPostOpened));
-    dispatch(selectPost(post));
+    dispatch(setPostVisibility(isPostOpened));
+    dispatch(setSelectedPost(post));
+  };
+
+  const onChangeStatus = (status: LikeStatus, card: CardType) => {
+    dispatch(setStatus({ status, card }));
   };
 
   const isPostOpened = useSelector(PostSelectors.getPostVisibility);
   const post = useSelector(PostSelectors.getPostValue);
+  const likedPosts = useSelector(PostSelectors.getLikedPosts);
+  const dislikedPosts = useSelector(PostSelectors.getDislikedPosts);
 
   const onTabClick = (key: TabsNames) => setActiveTab(key);
 
@@ -204,11 +212,14 @@ const Home = () => {
     <PostVisibilityProvider
       postVisibility={isPostOpened}
       onChangePostVisibility={onChangePostVisibility}
+      onChangeStatus={onChangeStatus}
+      likedPosts={likedPosts}
+      dislikedPosts={dislikedPosts}
     >
       <Title title={"Blog"} />
       <Tabs tabsList={TABS_LIST} onClick={onTabClick} activeTab={activeTab} />
       <CardsList cardsList={cardsList} />
-      <PostModalWindow post={post} />
+      {post && <PostModalWindow post={post} />}
     </PostVisibilityProvider>
   );
 };
