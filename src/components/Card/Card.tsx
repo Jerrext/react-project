@@ -10,6 +10,12 @@ import {
 } from "../../assets/icons";
 import { Theme, useThemeContext } from "../../context/Theme/Context";
 import { usePostVisibilityContext } from "../../context/PostVisibility/Context";
+import {
+  LikeStatus,
+  PostSelectors,
+  setStatus,
+} from "../../redux/reducers/postSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Card: FC<CardProps> = ({ card, size }) => {
   const { title, text, date, image } = card;
@@ -24,6 +30,18 @@ const Card: FC<CardProps> = ({ card, size }) => {
   const onMoreBtnClick = (post: CardType, isPostOpened: boolean) => () => {
     onChangePostVisibility(post, isPostOpened);
   };
+
+  const dispatch = useDispatch();
+
+  const onStatusClick = (status: LikeStatus) => () => {
+    dispatch(setStatus({ status, card }));
+  };
+
+  const likedPosts = useSelector(PostSelectors.getLikedPosts);
+  const dislikedPosts = useSelector(PostSelectors.getDislikedPosts);
+
+  const likedIndex = likedPosts.findIndex((post) => post.id === card.id);
+  const dislikedIndex = dislikedPosts.findIndex((post) => post.id === card.id);
 
   return (
     <div
@@ -67,11 +85,13 @@ const Card: FC<CardProps> = ({ card, size }) => {
             [styles.darkIconWrapper]: isDark,
           })}
         >
-          <div>
+          <div onClick={onStatusClick(LikeStatus.Like)}>
             <LikeIcon />
+            {likedIndex > -1 && 1}
           </div>
-          <div>
+          <div onClick={onStatusClick(LikeStatus.Dislike)}>
             <DislikeIcon />
+            {dislikedIndex > -1 && 1}
           </div>
         </div>
         <div
